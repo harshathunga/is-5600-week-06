@@ -7,6 +7,10 @@ export default function SingleView({data}) {
   // get the product from the data using the id
   const product = data.find(product => product.id === id);
 
+  if (!product) {
+    return <div>Product not found</div>;
+  }
+
   const { user } = product;
 
   const title = product.description ?? product.alt_description;
